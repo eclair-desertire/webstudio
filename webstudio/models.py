@@ -7,4 +7,7 @@ class Works(models.Model):
 
 class Order(models.Model):
     pass
+
+class Employee(models.Model):
+    pass
 # Create your models here.
