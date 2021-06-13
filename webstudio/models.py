@@ -6,7 +6,13 @@ class Works(models.Model):
     pass
 
 class Order(models.Model):
-    pass
+    order_email=models.EmailField(null=True)
+    order_title=models.CharField(max_length=200,null=True)
+    order_info=models.TextField(null=True)
+    order_contacts=models.CharField(max_length=300,null=True)
+
+    def __str__(self):
+        return order_title
 
 class Employee(models.Model):
     employee_photo=models.ImageField(null=True)
