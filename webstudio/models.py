@@ -3,7 +3,15 @@ from django.db import models
 from django.utils import timezone
 
 class Works(models.Model):
-    pass
+    work_photo_main=models.ImageField(null=True)
+    work_photo_2=models.ImageField(null=True)
+    work_photo_3=models.ImageField(null=True)
+    work_title=models.CharField(max_length=200,null=True)
+    work_info=models.TextField(null=True)
+    work_address=models.CharField(max_length=300,null=True,default='https://')
+    def __str__(self):
+        return self.work_title
+    
 
 class Order(models.Model):
     order_email=models.EmailField(null=True)
@@ -12,7 +20,7 @@ class Order(models.Model):
     order_contacts=models.CharField(max_length=300,null=True)
 
     def __str__(self):
-        return order_title
+        return self.order_title
 
 class Employee(models.Model):
     employee_photo=models.ImageField(null=True)
