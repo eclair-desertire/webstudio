@@ -24,7 +24,7 @@ def order_new(request):
 
             return redirect('main_page')
     else:
-        form = OrderForm(request.POST)
+        form = OrderForm()
     return render(request,'webstudio/order_new.html',{'form':form})
 
 # Create your views here.
