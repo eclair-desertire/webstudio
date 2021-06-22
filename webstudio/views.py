@@ -22,7 +22,7 @@ def order_new(request):
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            send_mail(f'{subject} от {from_email}', message,DEFAULT_FROM_EMAIL, RECIPIENTS_EMAIL)
+            send_mail(f'{subject} от {from_email}', message,"вставь сюда нужны email", "сюда тот же самый  email")
 
             return redirect('success')
     else:
