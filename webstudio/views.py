@@ -5,7 +5,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from config.settings import RECIPIENTS_EMAIL, DEFAULT_FROM_EMAIL
+
 
 
 def main_page(request):
