@@ -13,9 +13,7 @@ def main_page(request):
 
 def order_new(request):
 
-    if request.method == 'GET':
-        form = OrderForm()
-    elif request.method == 'POST':
+    if request.method == 'POST':
         # если метод POST, проверим форму и отправим письмо
         form = OrderForm(request.POST)
         if form.is_valid():
@@ -26,7 +24,7 @@ def order_new(request):
 
             return redirect('main_page')
     else:
-        return HttpResponse('Неверный запрос.')
+        form = OrderForm(request.POST)
     return render(request,'webstudio/order_new.html',{'form':form})
 
 # Create your views here.
