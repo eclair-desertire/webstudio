@@ -24,7 +24,7 @@ def order_new(request):
             message = form.cleaned_data['message']
             send_mail(f'{subject} от {from_email}', message,"вставь сюда нужны email", "сюда тот же самый  email")
 
-            return redirect('success')
+            return redirect('main_page')
     else:
         return HttpResponse('Неверный запрос.')
     return render(request,'webstudio/order_new.html',{'form':form})
