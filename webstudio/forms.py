@@ -5,5 +5,6 @@ class OrderForm(forms.ModelForm):
     
     class Meta:
         model=Order
-        fields=('order_title','order_email','order_title','order_contacts')
+        
+        fields=('order_title','order_info','order_date','order_email','order_contacts')
         
