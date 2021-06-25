@@ -4,7 +4,7 @@ from .forms import OrderForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-
+from .forms import ContactForm
 
 
 
@@ -17,10 +17,10 @@ def order_new(request):
         # если метод POST, проверим форму и отправим письмо
         form = OrderForm(request.POST)
         if form.is_valid():
-            order_name = form.cleaned_data['order_name']
+            order_title = form.cleaned_data['order_title']
             order_email = form.cleaned_data['order_email']
-            order_info = form.cleaned_data['order_title'] +  form.cleaned_data['order_info'] +  form.cleaned_data['order_number']
-            send_mail(f'{order_name} от {order_email}', order_info,"вставь сюда нужны email", "сюда тот же самый  email")
+            message = form.cleaned_data['order_info'] + form.cleaned_data['order_contacts'] + form.cleaned_data['order_date']
+            send_mail(f'{order_title} от {order_email}', message,"вставь сюда нужны email", "сюда тот же самый  email")
 
             return redirect('main_page')
     else:
