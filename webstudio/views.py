@@ -17,10 +17,10 @@ def order_new(request):
         # если метод POST, проверим форму и отправим письмо
         form = OrderForm(request.POST)
         if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            send_mail(f'{subject} от {from_email}', message,"вставь сюда нужны email", "сюда тот же самый  email")
+            order_title = form.cleaned_data['order_title']
+            order_email = form.cleaned_data['order_email']
+            info = form.cleaned_data['order_info'] + form.cleaned_data['order_contacts'] + form.cleaned_data['order_date']
+            send_mail(f'{order_title} от {order_email}', info,"вставь сюда нужны email", "сюда тот же самый  email")
 
             return redirect('main_page')
     else:
