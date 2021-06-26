@@ -19,8 +19,23 @@ def order_new(request):
         if form.is_valid():
             order_title = form.cleaned_data['order_title']
             order_email = form.cleaned_data['order_email']
-            info = form.cleaned_data['order_info'] + form.cleaned_data['order_contacts'] + form.cleaned_data['order_date']
-            send_mail(f'{order_title} от {order_email}', info,"вставь сюда нужны email", "сюда тот же самый  email")
+            info = form.cleaned_data['order_info']
+            info2 = form.cleaned_data['order_number']
+
+
+            info_end = order_title+info+info2
+
+
+            
+            send_mail(
+                        order_email,
+                        info_end,
+                        'from@example.com',
+
+                        ['to@example.com'],
+
+                        fail_silently=False,
+                    )
 
             return redirect('main_page')
     else:
