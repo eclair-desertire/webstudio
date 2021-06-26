@@ -19,7 +19,6 @@ class Order(models.Model):
     order_number=models.CharField(max_length=200,null=True)
     order_name=models.CharField(max_length=200,null=True)
     order_info=models.TextField(null=True)
-    order_contacts=models.CharField(max_length=300,null=True)
     order_date=models.DateTimeField(null=True,blank=True)
 
     def send(self):
