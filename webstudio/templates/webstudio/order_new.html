@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <form method = 'post'>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+
+        <button type="submit" class="btn btn-primary btn-block">Добавить новость</button>
+
         
     </form>
 </body>
