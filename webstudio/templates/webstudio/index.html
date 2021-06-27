@@ -104,42 +104,21 @@
       <!-- Page Three ==================================================================================== -->
       <div class="page_wrapper_container">
         <div class="inner_container_page page_three">
+
+        {% for item in works %}
           <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
+            <div class="block">{{ item.work_title }}</div>
+            <div class="block">{{ item.work_info }}</div>
+            
+
+            {% if item.work_photo_main %}
+            <div class="block"><picture><source srcset="{{ item.work_photo_main.url }}" type="image/webp"><img src="{{ item.work_photo_main.url }}" alt=""></picture></div>
+            {% endif %}
           </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
-          <div class="content_portfolio">
-            <div class="block"></div>
-            <div class="block"></div>
-          </div>
+
+          {% endfor %}
+
+
         </div>
       </div>
       <!-- Page Four ==================================================================================== -->
@@ -148,99 +127,83 @@
           <div class="block_slider block_slider__one">
             <h2>Администрация</h2>
             <div class="content_worker">
+              {% for item in administ %}
               <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
               </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
+
+              {% endfor %}
+
             </div>
           </div>
           <div class="block_slider block_slider__two">
             <h2>Frontend-разработчики</h2>
             <div class="content_worker">
+              {% for item in front %}
               <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
               </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
+
+              {% endfor %}
+
             </div>
           </div>
           <div class="block_slider block_slider__three">
             <h2>Backend-разработчики </h2>
             <div class="content_worker">
+              {% for item in back %}
               <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp" type="image/webp"><img src="{% static 'image/IMG.png" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
               </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
+
+              {% endfor %}
+
             </div>
           </div>
           <div class="block_slider block_slider__four">
             <h2>HR-Менеджера</h2>
             <div class="content_worker">
+              {% for item in hr %}
               <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
+                {% if item.employee_photo %}
+                <picture><source srcset="{{ item.employee_photo.url }}" type="image/webp"><img src="{{ item.employee_photo.url }}" alt=""></picture>
+               {% else %}
+               <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
+               {% endif %}
+                  <p>{{ item.employee_fullname }}</p>
+                <p>{{ item.employee_specialization }}</p>
+                <a href="">{{ employee_email }}</a>
               </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
-              <div class="worker_item">
-                <picture><source srcset="{% static 'image/IMG.webp' %}" type="image/webp"><img src="{% static 'image/IMG.png' %}" alt=""></picture>
-                <p>ф и о</p>
-                <p>спец</p>
-                <a href="">почта</a>
-              </div>
+
+              {% endfor %}
+
             </div>
           </div>
         </div>
         <div class="inner_btn_for_slider">
-          <div class="style_btn next_slide"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="{% static 'image/chevrons-right.svg' %}" alt=""></picture></div>
-          <div class="style_btn prev_slide"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="{% static 'image/chevrons-right.svg' %}" alt=""></picture></div>
+          <div class="style_btn next_slide"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="image/chevrons-right.svg" alt=""></picture></div>
+          <div class="style_btn prev_slide"><picture><source srcset="{% static 'image/chevrons-right.svg' %}" type="image/webp"><img src="image/chevrons-right.svg" alt=""></picture></div>
         </div>
       </div>
       <!-- Page Five ==================================================================================== -->

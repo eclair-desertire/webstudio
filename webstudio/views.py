@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import OrderForm
+from .models import Employee,Works
 
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -9,6 +10,18 @@ from django.shortcuts import render, redirect
 
 
 def main_page(request):
+    
+    administ = Employee.objects.filter(employee_specialization__contains = "Администрация")
+    front = Employee.objects.filter(employee_specialization = "Frontend-разработчики")
+    back = Employee.objects.filter(employee_specialization = "Backend-разработчики")
+    hr = Employee.objects.filter(employee_specialization = "HR-Менеджера")
+
+    works = Works.objects.all()
+
+
+
+
+
     if request.method == 'POST':
         # если метод POST, проверим форму и отправим письмо
         form = OrderForm(request.POST)
@@ -38,6 +51,6 @@ def main_page(request):
     else:
 
         form = OrderForm()
-    return render(request,'webstudio/index.html',{'form':form})
+    return render(request,'webstudio/index.html',{'form':form,'administ':administ,'front':front,'back':back,'hr':hr,'works':works})
 
 
