@@ -9,10 +9,6 @@ from django.shortcuts import render, redirect
 
 
 def main_page(request):
-    return render(request,'webstudio/main_page.html',{})
-
-def order_new(request):
-
     if request.method == 'POST':
         # если метод POST, проверим форму и отправим письмо
         form = OrderForm(request.POST)
@@ -21,25 +17,27 @@ def order_new(request):
             order_email = form.cleaned_data['order_email']
             info = form.cleaned_data['order_info']
             info2 = form.cleaned_data['order_number']
+            info3 = form.cleaned_data['order_content']
 
 
-            info_end = order_title+info+info2
+            info_end = "Имя: " + order_title+ " Что разработать?: " +  info + " Номер: " + info2 + " Описаине: " +  info3
 
 
             
             send_mail(
                         order_email,
                         info_end,
-                        'from@example.com',
+                        'zinovievakinov1234@gmail.com',
 
-                        ['to@example.com'],
+                        ['zinovievakinov1234@gmail.com'],
 
-                        fail_silently=False,
+                        fail_silently=True,
                     )
 
             return redirect('main_page')
     else:
-        form = OrderForm()
-    return render(request,'webstudio/order_new.html',{'form':form})
 
-# Create your views here.
+        form = OrderForm()
+    return render(request,'webstudio/index.html',{'form':form})
+
+
