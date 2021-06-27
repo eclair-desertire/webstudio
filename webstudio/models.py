@@ -14,11 +14,12 @@ class Works(models.Model):
     
 
 class Order(models.Model):
-    order_email=models.EmailField(null=True)
+    order_email=models.CharField(max_length=200,null=True)
     order_title=models.CharField(max_length=200,null=True)
     order_number=models.CharField(max_length=200,null=True)
     order_name=models.CharField(max_length=200,null=True)
     order_info=models.TextField(null=True)
+    order_content=models.TextField(null=True)
     order_date=models.DateTimeField(null=True,blank=True)
 
     def send(self):
